@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 4-2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        var arr = [];
+        for (var i = 0; i < 15; i++) {
+            arr.push(getRandomNumber(1, 100)); 
+        }
+
+        document.write("Початковий масив: " + arr.join("  ") + "<br>");
+
+        var maxElement = arr[0];
+        var maxElementIndex = 0;
+        for (var i = 1; i < arr.length; i++) {
+            if (arr[i] > maxElement) {
+                maxElement = arr[i];
+                maxElementIndex = i;
+            }
+        }
+
+        // Swap the max element with the second element
+        var temp = arr[1];
+        arr[1] = maxElement;
+        arr[maxElementIndex] = temp;
+
+        document.write("Масив після заміни: " + arr.join("  ") + "<br>");
+    </script>
+    <p>Максимальний елемент: <span id="maxElement"></span></p>
+    <p>Масив після заміни: <span id="modifiedArray"></span></p>
+
+    <script>
+        document.getElementById("maxElement").innerText = maxElement;
+        document.getElementById("modifiedArray").innerText = arr.join("  ");
+        var button = document.createElement('button');
+        button.innerHTML = 'Назад';
+        button.onclick = function() {
+            window.location.href = 'index.html';
+        };
+        document.body.appendChild(button);
+    </script>
+</body>
+</html>

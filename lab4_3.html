@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 4-3</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function getRandomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        var arr = [];
+        for (var i = 0; i < 15; i++) {
+            arr.push(getRandomNumber(1, 100)); 
+        }
+
+        document.write("Початковий масив: " + arr.join("  ") + "<br>");
+
+        var a = 1; // You can change the value of a
+        var b = 25; // You can change the value of b
+
+        var numbersOutOfRange = arr.filter(function (element) {
+            return element < a || element > b;
+        });
+
+        var sumOutOfRange = numbersOutOfRange.reduce(function (sum, element) {
+            return sum + element;
+        }, 0);
+
+        var averageOutOfRange = sumOutOfRange / numbersOutOfRange.length;
+
+        var countPositiveMultiplesOfThree = 0;
+        for (var i = 2; i < arr.length; i += 3) {
+            if (arr[i] > 0) {
+                countPositiveMultiplesOfThree++;
+            }
+        }
+
+        document.write("Середнє арифметичне чисел, що не потрапляють у проміжок [" + a + "," + b + "]: " + averageOutOfRange.toFixed(2) + "<br>");
+        document.write("Кількість додатних чисел, що стоять на місцях, кратних 3: " + countPositiveMultiplesOfThree + "<br>");
+        
+        var button = document.createElement('button');
+        button.innerHTML = 'Назад';
+        button.onclick = function() {
+            window.location.href = 'index.html';
+        };
+        document.body.appendChild(button);
+    </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 4-4</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // Створення масивів fruits та citrus
+        var fruits = ['apple', 'pineapple', 'mango', 'melon', 'grape'];
+        var citrus = ['orange', 'lemon', 'lime'];
+
+        // Виведення масиву fruits
+        document.write("Масив fruits: " + fruits.join(", ") + "<br>");
+
+        // Виведення масиву citrus
+        document.write("Масив citrus: " + citrus.join(", ") + "<br>");
+
+        // Об'єднання масиву fruits та citrus
+        var combined = fruits.concat(citrus);
+        document.write("Об'єднаний масив fruits та citrus: " + combined.join(", ") + "<br>");
+
+        // Вставка елементів після mango
+        fruits.splice(fruits.indexOf('mango') + 1, 0, 'pear', 'cherry', 'plum', 'raspberry', 'strawberry');
+        document.write("Масив fruits після вставки: " + fruits.join(", ") + "<br>");
+
+        // Видалення останніх 3 елементів
+        fruits.splice(-3);
+        document.write("Масив fruits після видалення останніх 3 елементів: " + fruits.join(", ") + "<br>");
+
+        // Виведення в алфавітному порядку
+        fruits.sort();
+        document.write("Масив fruits в алфавітному порядку: " + fruits.join(", ") + "<br>");
+
+        // Виведення в зворотному алфавітному порядку
+        fruits.sort(function(a, b) {
+            return b.localeCompare(a);
+        });
+        document.write("Масив fruits в зворотному алфавітному порядку: " + fruits.join(", ") + "<br>");
+
+        // Виведення відсортованого за довжиною слів
+        fruits.sort(function(a, b) {
+            return a.length - b.length;
+        });
+        document.write("Масив fruits відсортований за довжиною слів: " + fruits.join(", ") + "<br>");
+        var button = document.createElement('button');
+        button.innerHTML = 'Назад';
+        button.onclick = function() {
+            window.location.href = 'index.html';
+        };
+        document.body.appendChild(button);
+    </script>
+</body>
+</html>

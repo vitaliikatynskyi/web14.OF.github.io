@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lab 4-1</title>
+</head>
+<body>
+    <script>
+        var triag = [];
+        for (var n = 1; n <= 10; n++) {
+            triag.push(n * (n + 1) / 2);
+        }
+
+        document.write("Масив 'трикутних' чисел: " + triag.join("  ") + "<br>");
+
+        var kvd = [];
+        for (var i = 1; i <= 10; i++) {
+            kvd.push(i * i);
+        }
+
+        document.write("Масив квадратів натуральних чисел: " + kvd.join("  ") + "<br>");
+
+        var rez = triag.concat(kvd);
+
+        document.write("Об'єднаний масив rez: " + rez.join("  ") + "<br>");
+
+        rez.sort(function(a, b) {
+            return b - a;
+        });
+
+        document.write("Відсортований масив rez у зворотному порядку: " + rez.join("  ") + "<br>");//
+        var button = document.createElement('button');
+        button.innerHTML = 'Назад';
+        button.onclick = function() {
+            window.location.href = 'index.html';
+        };
+        document.body.appendChild(button);
+    </script>
+</body>
+</html>
+<!-- Сформуйте одновимірний масив (не менше 15 елементів,
+ для генерації значень масиву можна скористатися функцією 
+ random об'єкта Math), виведіть значення цього масиву на
+  екран у рядок. Виконайте завдання відповідно 
+до вашого номера в журналі, не використовуючи вбудовані функції.
+
+Знайти максимальний елемент та поміняти його місцями з останнім елементом масиву. -->
